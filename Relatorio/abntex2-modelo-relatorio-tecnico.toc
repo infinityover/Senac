@@ -1,0 +1,22 @@
+\changetocdepth {4}
+\select@language {brazil}
+\setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {chapter}{\chapternumberline {1}\MakeTextUppercase {Introdu\IeC {\c c}\IeC {\~a}o}}{4}{chapter.1}
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {chapter}{\chapternumberline {2}\MakeTextUppercase {Materiais e M\IeC {\'e}todos}}{5}{chapter.2}
+\contentsline {section}{\numberline {2.1}Motiva\IeC {\c c}\IeC {\~o}es ao uso do material}{5}{section.2.1}
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {chapter}{\chapternumberline {3}\MakeTextUppercase {Desenvolvimento}}{6}{chapter.3}
+\contentsline {section}{\numberline {3.1}Tipo de documento e pacotes usados}{6}{section.3.1}
+\contentsline {section}{\numberline {3.2}Cria\IeC {\c c}\IeC {\~a}o do modelo a ser usado}{6}{section.3.2}
+\contentsline {section}{\numberline {3.3}Cria\IeC {\c c}\IeC {\~a}o do algoritmo que ir\IeC {\'a} gerar o c\IeC {\'o}digo LaTeX}{7}{section.3.3}
+\contentsline {section}{\numberline {3.4}Compila\IeC {\c c}\IeC {\~a}o do c\IeC {\'o}digo}{9}{section.3.4}
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {chapter}{\chapternumberline {4}\MakeTextUppercase {Resultado}}{11}{chapter.4}
+\contentsline {section}{\numberline {4.1}Detalhes extras}{11}{section.4.1}
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase {Conclus\IeC {\~a}o}}{12}{chapter.5}
+\vspace {\cftbeforechapterskip }
+\setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
+\contentsline {chapter}{\uppercase {Refer\^encias}}{13}{section*.5}
