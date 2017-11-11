@@ -1,0 +1,10 @@
+Pipeline
+Superescalar -- multiplicar a quantidade de componetes dentro do processador
+Superpipeline -- executar tanto na subida da quanto na descida do clock
+              -- aumentar a quantidade de estagios e dimunuir o tempo de estagio
+
+Paralelismo
+------------
+processador
+cores
+thread

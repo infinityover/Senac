@@ -1,0 +1,96 @@
+1. Pesquise sobre memória RAM e memória ROM. Diferencie. Explique acesso sequencial e acesso aleatório em memória?
+R: A memoria RAM é uma memoria da qual os dados podem ser escritos e reescritos, já a memoria ROM pode somente ser escrita uma unica vez.
+O acesso sequencial é feito em sequencia, de forma que faz com que os dados sejam escritos de forma ordenada, e tenha que ser lido tambem de forma ordenada, um exemplo é a fita magnetica.
+O acesso aleatorio funciona de forma que se tenha um endereço de memoria para cada posição de memoria e assim consigamos acessar a memoria sem a espera para encontrar determinada faixa de dados.
+
+2. As memórias de um computador são divididas em níveis hierárquicos, de registradores à memória secundária. Cite quais são esses níveis e determine a relação de desempenho e capacidade de armazenamento entre eles.
+R: Eles são relacionados com o seu custo, velocidade de acesso e capaciadade.
+Indo desde memoria cache onde temos, uma baixa capacidade, uma alta velocidade e um alto custo.
+Indo para a memoria RAM da qual temos uma capacidade mediana, um custo mediano, e uma velocidade mediana.
+Até os HD's onde temos uma alta capacidade, por um preço baixo e uma velocidade baixa tambem.
+
+3. Em relação à cache, o que é localidade espacial? E o que é localidade temporal?
+R: A localidade temporal é o que acontece quando temos um MISS na cache, o circuito irá buscar o dado na RAM, e irá armazenar na memoria cache por um curto periodo de tempo, pois há uma alta probabilidade deste dado ser utilizado novamente.
+E a localidade espacial, ocorre juntamente com a localidade temporal, a memoria cache irá armazenar também as posições proximas do dado que foi buscado, da RAM pois existe uma alta probabilidade dos dados proximos serem utilizados tambem.
+
+4. O que ocorre durante uma falta (miss) na cache? Qual é a "penalidade" paga? Quais os tempos envolvidos?
+R: No miss o processador irá ter que aguardar a informação ser trazida da memoria RAM, isto significa, que ele terá que a aguardar o tempo que a memoria leva para conseguir trazer esta informação a ele
+
+5. Qual é a diferença dos métodos de escrita em memória a partir da cache denominados:
+(a) write-back e (b) write-through?
+R: a) write-back é o processo de se escrever primariamente na memoria cache, e posteriormente passado para a memoria RAM.
+b) o write-through é o processo de se escrever nas duas(cache e RAM) memorias simultaneamente
+
+6. Se o sistema de memória tem uma latência de 10 ns por operação e uma largura de banda
+de 32 bits, qual é a taxa de transferência e a largura de banda do sistema de memória,
+assumindo que apenas uma operação pode ser realizada por vez e não existe retardo
+entre as operações?
+R: a taxa de transferencia é de 32 milhões de bits por segundo.
+A largura de banda é de 32 bits.
+
+7. Descreva o funcionamento básico de uma CPU que utiliza técnicas de pipelining. O que são estágios de uma máquina pipeline?
+R: O pipeline da CPU funciona dividindo as instruções em estagios, para que possam ser maximixado a eficacia da CPU. Sendo assim a CPU, ira executar um estagio por vez e não uma instrução.
+
+8. O que é o diagrama espaço-tempo?
+R: É o diagrama que nos exibe a relação de tempo de inicio e fim de uma execução, com a instrução executada.
+
+9. A técnica de pipeline acelera a execução de uma instrução? Justifique. (Ou: Qual a influência da adoção da técnica de pipeline na velocidade de processamento de uma instrução?)
+R: Singularmente ela não acelera a execução, mas quando lidamos com uma quantia maior de instruções ele tende a executar mais instruções em menos, tempo pois maximiza a eficacia da CPU num todo.
+
+10. O pipeline busca aumentar o desempenho do computador executando mais instruções ao mesmo tempo. Mas nem sempre é possível manter o pipeline cheio, devido aos conflitos que podem ocorrer. Cite o nome dos três tipos de conflitos que diminuem o desempenho do pipeline. Para cada um dos 3 tipos de conflito, cite pelo menos uma das técnicas que podem ser utilizadas para eliminá-los ou diminuir seu impacto.
+R: Estrutural - HADWARE adicionar mais hardware
+Dados - Nescita de dados, fazer com que o compilador seja mais eficas
+Conflito de controle - Necessita de um dado para executar a verificação e assim executar mais instruções. Nesse caso a solução é ignorar a verificação e executar, e caso seja a verificação de verdadeiro, ganhamos o tempo do pipe-line.
+
+11. Discuta porque a técnica de pipeline corresponde à implementação de paralelismo temporal, em contraste com o conceito de paralelismo estrutural.
+R: Ela corresponde a paralelismo temporal pois maximiza o uso da CPU e não coloca inclui mais hardware dentro do processador.
+
+12. O que é vazão (throughput) de um pipeline e qual sua relação com o número de ciclos de relógio dispendidos para a execução de cada instrução (CPI)?
+R: Não, a vazão é dada pelo tempo do maior estagio.
+
+13. Considere o Pipeline da lavanderia visto em aula com os seguintes tempos: lava 35 min,seca 15min e passa 20min. Calcule o tempo consumido para processar 5 sacos de roupas. Compare com o tempo sem o uso de pipeline.
+R: Sem o pipeline demoraria 5:50, já com o pipeline 2:55;
+
+14. A execução de um programa numa determinada máquina só pode ser efetuada se esse programa estiver em linguagem nativa. Explique os passos desde a escrita do código fonte até á sua execução pela máquina. Como exemplo, cite o procedimento de um programa em C, um em Java e um em .Net .
+R: O programa deve ser escrito na linguagem desejada, após isso, ao "compilar" o programa, será feita, a link-edição, estagio de linkar todas as bibliotecas utilizadas, após isso irá ser compilado, aonde o compilador ira deixar o codigo mais eficas. E após isso o compilador irá passar pelo assembler.
+
+15. Um processador sem pipeline tem uma duração de ciclo de 25 ns. Qual é a duração do ciclo de uma versão desse processador com pipeline de 5 estágios divididos homogeneamente, se o latch tem uma latência de 1 ns? E se o processador for dividido em 50 estágios? Que conclusão podemos tirar quando comparado os dois processadores?
+R: Terá uma duração de 6 ns. E caso seja dividido em 50, teremos, 1.5ns. Com isso conseguimos chegar a conclusão que conforme vamos dividindo os processos, o estagio já não é mais tão relevante, a latencia passa a fazer mais diferença
+
+16. Suponha que um processador sem pipeline, com uma duração de ciclo de 25 ns, esteja dividido em 5 estágios com latências de 5, 7, 3, 6 e 4 ns. Se a latência do latch for de 1ns qual é a duração do ciclo?
+R: 29 nanos segundos, ver com o Gustavo
+
+17. O que é uma bolha em um pipeline? O que pode causar bolhas?
+R: Pular uma etapa. São ocasionadas para resolver problemas seja de hardware, dados, conflitos de controle.
+
+18. Fale sobre superpipeline e superescalar.
+R: superpipeline é o metodo de otimizar o ganho do processador sem adicionar mais hardware ao mesmo, ele força com que o processador realize 2 instruções por ciclo de clock, assim dobrando a potencia do processador.
+Superescalar é uma das soluções para os problemas de conflito estrutural, é ideia de adicionar mais componentes dentro do seu processador, para melhorar o desempenho.
+
+19. O que é paralelismo no nível de instrução.
+R: São os metodos de otimizar a capacidade do processador, seja ela a implementação de um pipeline, um superpipeline, superescalar
+
+
+20. Liste características de arquiteturas CISC (Complex Instruction Set Computer) e RISC (Reduced Instruction Set Computer). Compare.
+R: Arquitetura CISC:
+  -Complexidade em suas instruções,
+  Controle micro programado,
+  Diversos modos de comunicação do registrador com a memoria,
+  Multiplos modos de endereçamento,
+  Instruções de largura variavel,
+  Poucos registradores,
+  Registradores especializados.
+Arqutetura RISC:
+  Pipeline
+  Uma unica instrução por ciclo
+  Processo de carregamento na memoria
+  Instruções de formato fixo
+  Muitos registradores.
+
+
+21. Fale sobre os níveis de RAID comparando-os.
+R: Raid 0: discos agindo como se fossem apenas um unico disco, fazendo com que se torne mais rapido
+Raid 1: Discos se espelhando, trazendo segurança caso haja algum problema em um dos discos.
+Raid 5: Discos agindo em conjunto, e gerando redundancia de dados, de forma que eficas diferentemente do RAID 1, não é tão agil quanto RAID 1 e 0
+Raid 6: Discos se comportando como raid 1 porem evitando a falha de discos falharem simultaneamente.
+Raid 7: Discos se comportando de modo assincrono, controladas e cacheadas de modo individual.
