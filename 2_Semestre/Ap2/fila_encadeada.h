@@ -1,5 +1,5 @@
 #ifndef fila_encadeada
-
+#define fila_encadeada
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -57,18 +57,4 @@ void remover(elemento *f){
   f-> next = NULL;
 }
 
-
-int main() {
-  elemento fila;
-  int elementos;
-  inicializar(&fila);
-  remover(&fila);
-  adicionar(&fila, 10);
-  imprimir_fila(&fila);
-  remover(&fila);
-  adicionar(&fila, 20);
-  imprimir_fila(&fila);
-  remover(&fila);
-  return 0;
-}
 #endif
