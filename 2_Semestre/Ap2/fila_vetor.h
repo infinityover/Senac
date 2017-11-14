@@ -6,45 +6,71 @@
 //tipos elementos
 typedef struct fila{
   int valor[10];
-  int elementos;
+  int inicio;
+  int fim;
+  int tamanho;
 } fila;
 
 //inicializacao da fila
 void inicializar(fila *f){
-  f-> elementos = 0;
+  f-> inicio = 0;
+  f-> fim = 0;
+  f-> tamanho = 0;
 }
 
 //verifica se a fila está vazia
 int vazia(fila *f){
-  if(f-> elementos == 0){
+  if(f-> inicio == f-> fim){
     return 1;
   }
   return 0;
 }
 
+
 //imprime a fila
 void imprimir_fila(fila *f) {
-  for(int i = 0; i < f -> elementos; i++){
-    printf("%d\n",f -> valor[i]);
+  int j = f -> inicio;
+  for(int i = 0; i < f -> tamanho; i++ ){
+    if(j >= 10){
+      j = 0;
+    }
+    printf("%d  - pos  %d\n",f -> valor[j],j );
+    j++;
   }
+}
+
+int cheia(fila *f){
+  if(f-> tamanho == 10){
+    return 1;
+  }
+  return 0;
 }
 
 //adicionar novo elemento a fila
 void adicionar(fila *f, int valor_adicionar){
-  f -> valor[f -> elementos] = valor_adicionar;
-  f -> elementos++;
+  if (cheia(f)){
+    return;
+  }
+  if(f -> fim == 10){
+    f -> fim = 0;
+  }
+  int fim = f -> fim;
+  f -> valor[fim] = valor_adicionar;
+
+  f -> fim++;
+  f -> tamanho++;
 }
+
+
 
 //remove elemento da fila
 void remover(fila *f){
-  if (vazia(&f)){
+  if (vazia(f)){
     return;
   }
+  f -> inicio++;
+  f -> tamanho--;
 
-  for(int i = 0; i < f -> elementos; i++){
-    f -> valor[i] = f -> valor[i+1];
-  }
-  f -> elementos--;
 }
 
 #endif

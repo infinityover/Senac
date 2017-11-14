@@ -50,11 +50,7 @@ void remover(elemento *f){
     return;
   }
 
-  while(f->next->next){
-   f = f-> next;
-  }
-
-  f-> next = NULL;
+  f->next = f->next->next;
 }
 
 #endif
