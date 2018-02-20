@@ -1,0 +1,18 @@
+package ado_2;
+
+public class Fibonacci {
+	public static int calculaFibonacci(int elemento) {
+		if (elemento < 2) {
+			System.out.println(elemento);
+			return elemento;
+		}else {
+			return calculaFibonacci(elemento - 1) + calculaFibonacci(elemento -2);
+		}
+			
+	}
+	public static void main(String[] args) {
+		Fibonacci fib = new Fibonacci();
+		int i = fib.calculaFibonacci(5);
+		System.out.println(i);
+	}
+}

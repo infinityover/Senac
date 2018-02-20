@@ -1,0 +1,19 @@
+package ado_2;
+
+public class Fibonacci {
+	public static int calculaFibonacci(int elemento) {
+		if (elemento < 2) {
+			return elemento;
+		}else {
+			return calculaFibonacci(elemento - 1) + calculaFibonacci(elemento -2);
+		}
+			
+	}
+	public static void main(String[] args) {
+		Fibonacci fib = new Fibonacci();
+		for(int i = 1; i <= 30; i++) {
+			//i = fib.calculaFibonacci(i);
+			System.out.println(i + " " + fib.calculaFibonacci(i)+ "\t" );
+		}
+	}
+}
