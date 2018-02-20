@@ -1,0 +1,42 @@
+start:
+
+	SBI      DDRB, 5 ;seta o valor alto para a saida DDRB na posição 5, saida 13 do arduino
+	SBI      DDRB, 4 ;seta o valor alto para a saida DDRB na posição 4, saida 12 do arduino
+	SBI      DDRB, 3 ;seta o valor alto para a saida DDRB na posição 3, saida 11 do arduino
+
+farol:
+
+   ;Liga verde, porta 11
+   SBI      PORTB, 3 ; seta o PORTB como verdadeiro na posicao 3 do MEGA328P(Modelo processador arduino uno) e porta 11 do arduino
+   CBI      PORTB, 4 ; da clear no portB posicao 4
+   CBI      PORTB, 5 ; da clear no portB posicao 5
+   LDI      r20,250 ;atribui o valor de 250 ao r20
+   CALL     aguarda; aguarda o metodo retornar
+   
+
+   ;Liga amarelo, porta 12
+   SBI      PORTB, 4 
+   CBI      PORTB, 3
+   CBI      PORTB, 5
+   LDI      r20,250
+   CALL     aguarda
+   
+   ;Liga vermelho, porta 13
+   SBI      PORTB, 5
+   CBI      PORTB, 4
+   CBI      PORTB, 3
+   LDI      r20,250
+   CALL     aguarda
+
+   JMP      farol ;chama retorna ao inicio da funcao de piscar
+
+
+aguarda:
+	ldi r30, 100
+
+loop:
+	sbiw r30, 1  ;subtrai 1 do r30 
+	brne loop 
+	subi r20, 1 ;subtrai 1 do r20
+	brne aguarda
+	ret
