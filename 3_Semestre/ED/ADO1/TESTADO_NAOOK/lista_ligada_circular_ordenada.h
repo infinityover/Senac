@@ -4,7 +4,6 @@
 typedef struct n {
   int valor;
   struct n *next;
-  struct n *prev;
 } no;
 
 void insere(no* node, int val)
@@ -14,63 +13,64 @@ void insere(no* node, int val)
 
 	novo->valor = val;
 	novo->next = NULL;
-  novo->prev = NULL;
 
 	while(node != NULL && node->valor < val){
+    if(node  == inicial)break;
 		anterior = node;
 		node = node->next;
 	}
 
 	if(inicial->next == NULL){
 		inicial->next = novo;
+    return;
 	}else{
 		anterior->next = novo;
-    novo->prev = anterior;
-    
-    if (node != NULL){
+    if (node != inicial){
+      printf("aq\n" );
       novo->next = node;
-      node->prev = novo;
-    }
-	}
+    }else novo->next = inicial;
+  }
 	return;
 }
 
-
 int remover(no *node, int val){
-  no *anterior;
+
+  no *anterior, *inicial = node;
   while(node->next){
     if (node->valor == val){
       anterior->next = node->next;
-      node->next->prev = anterior;
       return 1;
     }
     anterior = node;
     node = node->next;
+    if(inicial == node) break;
   }
   return -1;
 }
 
 
 int remove_todos(no *node, int val){
-  no *anterior;
+  no *anterior, *inicial = node;
   while(node){
     if (node->valor == val){
       anterior->next = node->next;
-      if (node->next) node->next->prev = anterior;
     }else anterior = node;
     node = node->next;
+    if(inicial == node) break;
   }
   return -1;
 }
 
 int busca(no *node, int val){
   int i=0;
+  no *inicial = node;
   while(node){
     i++;
     if (node->valor == val){
       return i-1;
     }
     node = node->next;
+    if(node == inicial) break;
   }
   return -1;
 }

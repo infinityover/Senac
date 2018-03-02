@@ -6,13 +6,15 @@ typedef struct n {
   struct n *next;
 } no;
 
+
+
 void insere(no* node, int val)
 {
 	no *inicial = node, *novo, *anterior = NULL;
 	novo = (no*)malloc(sizeof(no));
 
 	novo->valor = val;
-	novo->next = node;
+	novo->next = NULL;
 
 	while(node != NULL && node->valor < val){
 		anterior = node;
@@ -24,18 +26,15 @@ void insere(no* node, int val)
 	}else{
 		anterior->next = novo;
 
-  if (node != NULL){
-    novo->next = node;
+    if (node != NULL){
+      novo->next = node;
     }
-  }
+	}
 	return;
 }
 
-
-
 int remover(no *node, int val){
-
-  no *anterior, *inicial = node;
+  no *anterior;
   while(node->next){
     if (node->valor == val){
       anterior->next = node->next;
@@ -43,34 +42,30 @@ int remover(no *node, int val){
     }
     anterior = node;
     node = node->next;
-    if(inicial == node) break;
   }
   return -1;
 }
 
 
 int remove_todos(no *node, int val){
-  no *anterior, *inicial = node;
+  no *anterior;
   while(node){
     if (node->valor == val){
       anterior->next = node->next;
     }else anterior = node;
     node = node->next;
-    if(inicial == node) break;
   }
   return -1;
 }
 
 int busca(no *node, int val){
   int i=0;
-  no *inicial = node;
   while(node){
     i++;
     if (node->valor == val){
       return i-1;
     }
     node = node->next;
-    if(node == inicial) break;
   }
   return -1;
 }

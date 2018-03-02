@@ -1,4 +1,4 @@
-#include "lista_ligada_dupla_circular_ordenada.h"
+#include "lista_ligada_dupla_circular_nao_ordenada.h"
 
 void imprime(no *lista){
   no *inicial= lista;
@@ -9,6 +9,21 @@ void imprime(no *lista){
     printf("%d\n", lista->valor );
   }
 }
+void imprimeinv(no *lista){
+  no *inicial = lista;
+  while(lista->next){
+    lista = lista->next;
+    if(lista == inicial)break;
+  }
+
+  while(lista){
+    printf("%d\n", lista->valor );
+    //printf("%d\n", lista->prev->valor);
+    lista = lista->prev;
+    if(lista == inicial)break;
+  }
+
+}
 
 int main(int argc, char const *argv[]) {
   no *lista;
@@ -16,8 +31,8 @@ int main(int argc, char const *argv[]) {
   lista -> valor = 0;
   lista -> next = NULL;
 
-  insere(lista,10);
   insere(lista,20);
+  insere(lista,10);
   insere(lista,30);
   insere(lista,40);
   insere(lista,60);
@@ -29,7 +44,7 @@ int main(int argc, char const *argv[]) {
   insere(lista,70);
   insere(lista,70);
   remove_todos(lista,70);
-  imprime(lista);
+  imprimeinv(lista);
 
 
   //printf("%d\n",busca(lista,70));

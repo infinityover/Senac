@@ -9,23 +9,23 @@ typedef struct n {
 
 
 void insere(no *node, int val){
-  no *novo_no, *inicial = node;
+  no *novo_no, *inicial = node,*anterior;
   novo_no =(no *)malloc(sizeof(no));
   novo_no -> valor = val;
   novo_no -> next = node;
 
   while(node->next){
-    if (node->valor <= val){
-      novo_no->prev = node->prev;
+    if (node->valor >= val){
+      novo_no->prev = anterior;
       node->prev = novo_no;
       novo_no->next = node->next;
       node->next= novo_no;
       return;
     }
-    if(node->next==inicial){
-      break;
-    }
+    if(inicial == node->next) break;
+    anterior = node;
     node = node->next;
+
   }
   novo_no->prev = node;
   node->next = novo_no;
@@ -57,7 +57,6 @@ int remove_todos(no *node, int val){
     }else anterior = node;
     node = node->next;
     if(inicial == node->next) break;
-    printf("aqui\n" );
   }
   return -1;
 }
