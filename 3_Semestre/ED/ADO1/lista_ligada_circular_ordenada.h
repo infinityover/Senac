@@ -6,24 +6,31 @@ typedef struct n {
   struct n *next;
 } no;
 
+void insere(no* node, int val)
+{
+	no *inicial = node, *novo, *anterior = NULL;
+	novo = (no*)malloc(sizeof(no));
 
-void insere(no *node, int val){
-  no *novo_no, *inicial = node;
-  novo_no =(no *)malloc(sizeof(no));
-  novo_no -> valor = val;
-  novo_no -> next = node;
+	novo->valor = val;
+	novo->next = node;
 
-  while(node->next){
-    node = node->next;
-    if (node->valor >= val){
-      novo_no->next = node->next;
-      node->next= novo_no;
-      return;
+	while(node != NULL && node->valor < val){
+		anterior = node;
+		node = node->next;
+	}
+
+	if(inicial->next == NULL){
+		inicial->next = novo;
+	}else{
+		anterior->next = novo;
+
+  if (node != NULL){
+    novo->next = node;
     }
-    if(inicial == node->next) break;
   }
-  node->next= novo_no;
+	return;
 }
+
 
 
 int remover(no *node, int val){

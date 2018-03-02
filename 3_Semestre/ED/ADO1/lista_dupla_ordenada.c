@@ -27,18 +27,19 @@ int main(int argc, char const *argv[]) {
   lista -> next = NULL;
   lista -> prev = NULL;
 
-  insere(lista,10);
   insere(lista,20);
-  insere(lista,30);
+  insere(lista,10);
   insere(lista,40);
-  insere(lista,50);
+  insere(lista,30);
   insere(lista,60);
+  insere(lista,50);
   insere(lista,10);
 
-  remove_todos(lista,10);
+  //remove_todos(lista,10);
   imprimeinv(lista);
 
-  //imprimeinv(lista);
+  printf("\n");
+  imprime(lista);
 
   return 0;
 }
