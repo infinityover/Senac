@@ -1,25 +1,21 @@
-
 #include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
 #include "fila_encadeada.h"
 
 int main(){
-  Fila *minhaFila;
-  int temp;
+   Fila minha_estrutura;
 
-  inicializaFila(minhaFila);
-  inserir(minhaFila, 17);
-  inserir(minhaFila, 43);
-  inserir(minhaFila, 59);
-  inserir(minhaFila, 19);
-  inserir(minhaFila, 28);
-  imprimeFila(minhaFila);
-  temp=remover(minhaFila);
-  temp=remover(minhaFila);
-  imprimeFila(minhaFila);
-  inserir(minhaFila, 30);
-  inserir(minhaFila, 51);
-  inserir(minhaFila, 27);
-  inserir(minhaFila, 72);
-  inserir(minhaFila, 47);
-  imprimeFila(minhaFila);
+
+  inicializar(&minha_estrutura);
+  inserir(&minha_estrutura, 19);
+  inserir(&minha_estrutura, 28);
+  inserir(&minha_estrutura, 30);
+  inserir(&minha_estrutura, 12);
+  imprimir(&minha_estrutura);
+  remover(&minha_estrutura);
+  remover(&minha_estrutura);
+  inserir(&minha_estrutura, 51);
+  inserir(&minha_estrutura, 48);
+  imprimir(&minha_estrutura);
 }

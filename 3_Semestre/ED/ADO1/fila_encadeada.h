@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
 
 typedef struct N{
   int valor;
@@ -7,34 +6,40 @@ typedef struct N{
 } node;
 
 typedef struct{
-  node *fim;
   node *inicio;
+  node *fim;
 }Fila;
 
-void inicializaFila(Fila *p){
-  p->inicio=NULL;
+void inicializar(Fila *p){
   p->fim=NULL;
+  p->inicio = NULL;
 }
 
 int vazia(Fila *p){
-  if(p->fim==NULL){
+  if(p->inicio==NULL){
     return 1;
   }
   return 0;
 }
 
-void inserir(Fila *p, int valor){
+void inserir(Fila *p, int valor_adicionado){
   node *no;
-  no = (node *) malloc(sizeof(node));
-  no->valor=valor;
-  no->proximo=p->fim;
-  p->fim=no;
+  no =(node *)malloc(sizeof(node));
+  no->valor=valor_adicionado;
+  no->proximo= NULL;
+
+  if(vazia(p)==1)
+    p->inicio = no;
+  else
+    p->fim->proximo = no;
+
+  p->fim = no;
 }
 
 int remover(Fila *p){
   if(vazia(p)==1){
-    printf("ERRO: fila vazia\n");
-    return -1;
+    printf("ERRO: pilha vazia\n");
+    return 404;
   }
   node *temp;
   temp=p->inicio;
@@ -42,9 +47,9 @@ int remover(Fila *p){
   return temp->valor;
 }
 
-void imprimeFila(Fila *p){
+void imprimir(Fila *p){
   node *temp;
-  temp=p->fim;
+  temp=p->inicio;
   while(temp!=NULL){
     printf("%d ", temp->valor);
     temp=temp->proximo;
