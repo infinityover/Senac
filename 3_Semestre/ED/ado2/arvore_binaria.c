@@ -1,13 +1,24 @@
 #include "arvore_binaria.h"
+int main(void) {
 
-int main(int argc, char const *argv[]) {
-  node *arvore;
-  arvore->valor = 0;
-  arvore->esquerda = NULL;
-  arvore->direita = NULL;
-  printf("agora vai\n" );
-  inserir(arvore,10);
-  printf("esquerda %d\n",arvore->esquerda->valor);
-  printf("direita %d\n",arvore->direita->valor);
+  arvore *p = createArvore(); /* cria uma árvore */
+
+  inserir(&p, 10);
+  inserir(&p, 20);
+  inserir(&p, 13);
+  inserir(&p, 7);
+
+  imprimeArvore(p);
+  if(buscaValor(p, 30)) {
+    printf("\nO numero 30 pertence a arvore!\n\n");
+  } else {
+     printf("\nO numero 30 NAO pertence a arvore!\n\n");
+  }
+  imprimeArvore(p);
+  printf("\n");
+  remover(p, 10);
+  imprimeArvore(p);
+
+
   return 0;
 }
