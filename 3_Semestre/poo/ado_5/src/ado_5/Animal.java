@@ -1,5 +1,5 @@
 package ado_5;
 
-public class Animal {
-
+public abstract class Animal {
+	public abstract void comportamento() ;
 }
