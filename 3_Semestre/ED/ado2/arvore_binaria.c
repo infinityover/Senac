@@ -9,15 +9,15 @@ int main(void) {
   inserir(&p, 7);
 
   imprimeArvore(p);
-  if(buscaValor(p, 30)) {
-    printf("\nO numero 30 pertence a arvore!\n\n");
+  if(buscaValor(p, 20)) {
+    printf("\nO numero %d pertence a arvore!\n\n",30);
   } else {
-     printf("\nO numero 30 NAO pertence a arvore!\n\n");
+     printf("\nO numero %d NAO pertence a arvore!\n\n",30);
   }
   imprimeArvore(p);
   printf("\n");
-  remover(p, 10);
-  imprimeArvore(p);
+  remover(&p, 10);
+  //imprimeArvore(p);
 
 
   return 0;

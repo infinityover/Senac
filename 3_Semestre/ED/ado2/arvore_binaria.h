@@ -81,22 +81,45 @@ arvore *verificaValor(arvore *p, int valor) {
 }
 
 
-arvore* remover(arvore *p, int valor) {
-  arvore *no = verificaValor(p, valor);
-  if(!no) return NULL;
-  else{
-    if(valor < p->elemento) p->sube = remover(p->sube, valor);
-    else if (valor > p->elemento) p->subd = remover(p->subd, valor);
-    else if (p->sube) {
-      arvore* aux = maiordir(p->sube);
-      p->elemento = aux->elemento;
-      p->sube = remover(p->sube, aux->elemento);
-      if (p->subd) {
-        arvore* aux = maioresq(p->subd);
-        p->elemento = aux->elemento;
-        p->subd = remover(p->subd, aux->elemento);
-      } else p = NULL;
+arvore* encontra_maior(arvore *no,int lado){
+  while(no){
+    if(lado == 1){
+      if(!no->sube) break;
+      no = no->sube;
     }
+    else {
+      if(!no->subd) break;
+      no = no->subd;
   }
-  return p;
+  return no;
+}}
+
+int remover(arvore **p, int valor) {
+  arvore *no_retorno = verificaValor((*p), valor);
+
+  if(!no_retorno) return -1;
+    printf("%d - valor do no\n",no_retorno->elemento );
+    printf("%d - endereco do no\n",&no_retorno);
+    printf("%d - endereco esquerdo\n",&(no_retorno->sube));
+    printf("%d - endereco direito\n",&(no_retorno->subd));
+
+
+    int retorno = no_retorno->elemento;
+    if(no_retorno->subd){
+      arvore *no_maior = encontra_maior(no_retorno->subd,1);
+      remover(p, no_maior->elemento);
+      no_maior->subd = no_retorno->subd;
+      no_maior->sube = no_retorno->sube;
+      *no_retorno = *no_maior;
+    }else if(no_retorno->sube){
+      arvore *no_maior = encontra_maior(no_retorno->sube,-1);
+
+      remover(p, no_maior->elemento);
+
+      no_maior->subd = no_retorno->subd;
+      no_maior->sube = no_retorno->sube;
+      *no_retorno = *no_maior;
+  }
+  //else free(no_retorno);
+  return retorno;
 }
